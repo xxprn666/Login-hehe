@@ -1,36 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+<div class="row justify-content-md-center">
+  <div class="col-sm-4">
+    <div class="card-body">
+      <div class="col-sm-4 col-form-label">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          {{ form.email.label }} {{ form.email() }}
+          {{ form.password.label }} {{ form.password() }}
+          <br>
+          <br>
+          {{ form.submit() }}
+        </form>
+      </div>
     </div>
-
-    <!-- Login Form -->
-    <form method="POST">
-      {{ form.hidden_tag() }}
-      <div class="fadeIn second">
-        {{ form.email.label }}<br>
-        {{ form.email() }}
-      </div>
-      <div class="fadeIn second">
-        {{ form.password.label }}<br>
-        {{ form.password() }}
-      </div>
-      <div class="fadeIn fourth">
-        {{ form.submit() }}
-      </div>
-
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="{{ url_for('register') }}">Register</a>
-    </div>
-
   </div>
 </div>
 {% endblock %}

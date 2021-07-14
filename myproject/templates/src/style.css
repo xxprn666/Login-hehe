@@ -1,0 +1,46 @@
+body {
+    font-family: 'Source Sans Pro';
+    background:red;
+    margin:0;
+    color:white;
+}
+
+a {
+    text-decoration:none;
+    color:red;
+    font-size:1.8em;
+    font-weight:700;
+}
+
+img { 
+    width:150px;
+}
+
+header {
+    background:#FFFFFF;
+    padding: 1em;
+}
+
+.container {
+    padding: 4em 1em;
+}
+
+footer {
+    background:#571212;
+}
+
+ul {
+    margin:0;padding:0;
+}
+ul li {
+    padding: 2em;
+    color:#E98A8A;
+}
+ul li span {
+    display:block;
+    font-size:1.4em;
+    margin-bottom:1em;
+    color: white;
+}
+
+
