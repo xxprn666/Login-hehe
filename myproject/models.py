@@ -41,8 +41,9 @@ class Tempekan(db.Model):
     Bakat = db.Column(db.Text)
     NamaOrtu = db.Column(db.Text)
 
-    def __init__(self, NamaLengkap, NamaPangillan, TanggalLahir, TempatLahir, Umur, Nik,
+    def __init__(self, Tempekan, NamaLengkap, NamaPangillan, TanggalLahir, TempatLahir, Umur, Nik,
             Alamat, NoHp, Email, Bakat, NamaOrtu):
+        self.Tempekan = Tempekan
         self.NamaLengkap = NamaLengkap
         self.NamaPangillan = NamaPangillan
         self.TempatLahir = TempatLahir

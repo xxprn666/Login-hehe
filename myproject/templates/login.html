@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 <div class="row justify-content-md-center">
   <div class="col-sm-4">
     <div class="card-body">
-      <div class="col-sm-4 col-form-label">
+      <div class="col-sm-12 col-form-label">
         <form method="POST">
           {{ form.hidden_tag() }}
-          {{ form.email.label }} {{ form.email() }}
-          {{ form.password.label }} {{ form.password() }}
+          {{ form.email.label(class="form-label") }} {{ form.email(class="form-control") }}
+          {{ form.password.label(class="form-label") }} {{ form.password(class="form-control") }}
           <br>
-          <br>
-          {{ form.submit() }}
+          {{ form.submit(class="btn btn-primary") }}
         </form>
       </div>
     </div>
   </div>
 </div>
+
 {% endblock %}

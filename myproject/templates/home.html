@@ -4,7 +4,15 @@
   {% if current_user.is_authenticated %}
     <p>Hallo, {{ current_user.username }}!</p>
   {% else %}
-    <p>Please login or register!</p>
+    <div class="text-center">
+      <img src=" {{ url_for('static', filename='images/Anyar.png') }}" class="rounded" alt="..." 
+      style="width:210px;height:200px;">
+    <h3>Pendataan Anggota<br>
+      <small class="text-muted">St.Yowana Yadnya Patni</small>
+    </h3>
+    <p>Login, Untuk Melakukan Pedataan St.Yowana Yadnya Patni</p>
+    <a class="btn btn-primary" href="{{ url_for('login') }}">Login</a>
+    </div>
   {% endif %}
 </div>
 {% endblock %}

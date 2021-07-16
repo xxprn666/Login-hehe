@@ -2,13 +2,13 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextField, IntegerField
 from wtforms.validators import DataRequired,Email,EqualTo
 from wtforms import ValidationError
-from myproject.models import User, Tempekan
+from myproject.models import User
 
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Login')
+    submit = SubmitField('login')
 
 
 class RegistrationForm(FlaskForm):
@@ -27,16 +27,17 @@ class RegistrationForm(FlaskForm):
         if User.query.filter_by(username=field.data).first():
             raise ValidationError('Sorry, that username is taken!')
 
-
 class TempekanForm(FlaskForm):
     Tempekan = IntegerField('Tempekan', validators=[DataRequired()])
-    NamaLengkap = TextField('Nama Lengkap', validators=[DataRequired()])
-    NamaPangillan = TextField('Nama Pangillan', validators=[DataRequired()]
-    Tempat = TextField('Tempat lahir', validators=[DataRequired()])
-    TanggalLahir = IntegerField('Tanggal Lahir', validators=[DataRequired()])
-    Umur = IntegerField('Umur', validators=[DataRequired()])
-    Nik = IntegerField('NIK', validators=[DataRequired()])
-    AlamatLengkap = TextField('Alamat Lengkap', validators=[DataRequired()])
-    Email = StringField('Alamat Email', validators=[DataRequired()])
-    Bakat = TextField('Minat dan Bakat', validators=[DataRequired()])
-    NamaOrtu = TextField('Nama Orang tua', validators=[DataRequired()])
+    NamaLengkap = TextField('Nama Lengkap', Validators=[DataRequired()])
+    NamaPangilan = TextField('Nama Pangilan', Validators=[DataRequired()])
+    TempatLahir = TextField('Tempat Lahir', Validators=[DataRequired()])
+    TanggalLahir = IntegerField('Tanggal Lahir', Validators=[DataRequired()])
+    Umur = IntegerField('Umur', Validators=[DataRequired()])
+    Nik = IntegerField('Nomor Nik', Validators=[DataRequired()])
+    Alamat = TextField('Alamat', Validators=[DataRequired()])
+    NoHp = IntegerField('Nomor Hp', Validators=[DataRequired()])
+    Email = TextField('Email', Validators=[DataRequired()])
+    Bakat = TextField('Minat dan Bakat', Validators=[DataRequired()])
+    NamaOrtu = TextField('Nama Orang Tua', Validators=[DataRequired()])
+    submit = SubmitField('Submit')

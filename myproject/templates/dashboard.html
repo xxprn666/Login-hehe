@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-md-center">
+  <div class="col-sm-4">
+    <div class="card-body">
+      <div class="col-sm-12 col-form-label">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          {{ form.Tempekan.label(class="form-label") }} {{ form.Tempekan(class="form-control") }}
+          {{ form.NamaLengkap.label(class="form-label") }} {{ form.NamaLengkap(class="form-control") }}
+          {{ form.NamaPagilan.label(class="form-label") }} {{ form.NamaPagilan(class="form-control") }}
+          {{ form.TempatLahir.label(class="form-label") }} {{ form.TempatLahir(class="form-control") }}
+          {{ form.TanggalLahir.label(class="form-label") }} {{ form.TanggalLahir(class="form-control") }}
+          {{ form.Umur.label(class="form-label") }} {{ form.Umur(class="form-control") }}
+          {{ form.Nik.label(class="form-label") }} {{ form.Nik(class="form-control") }}
+          {{ form.Alamat.label(class="form-label") }} {{ form.Alamat(class="form-control") }}
+          {{ form.NoHp.label(class="form-label") }} {{ form.NoHp(class="form-control") }}
+          {{ form.Email.label(class="form-label") }} {{ form.Email(class="form-control") }}
+          {{ form.Bakat.label(class="form-label") }} {{ form.Bakat(class="form-control") }}
+          {{ form.NamaOrtu.label(class="form-label") }} {{ form.NamaOrtu(class="form-control") }}
+          <br>
+          {{ form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

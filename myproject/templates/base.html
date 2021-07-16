@@ -6,30 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link media="all" href="src/style.css">
+
     <title>ST. Yowana Yadnya Patni</title>
   </head>
-  <body>
+  
+<body>
   <!-- Navbar --!>
-    <div class="container my-3">
-<nav class="navbar navbar-light bg-light justify-content-between">
-<a class="navbar-brand" href="{{ url_for('home') }}">Anyar</a>
-<form class="form-inline">
-    {% if current_user.is_authenticated %}
-      <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
-      <li class="nav-link"><a href="{{ url_for('register') }}">Register New Admin</a></li>
-    {% else %}
-      <li class="nav-link"><a href="{{ url_for('login') }}">Log In</a></li>
-    {% endif %}
-  </form>
-  </nav>
-  </div>
+<div class="container my-3">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href=" {{ url_for('home') }}">Anyar</a>
 
-  <div class="container">
+    <form class="form-inline">
+      {% if current_user.is_authenticated %}
+        <li class="nav-link"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
+        <li class="nav-link"><a href="{{ url_for('register') }}">Register New Admin</a></li>
+      {% endif %}
+    </form>
+  </nav>
+</div>
+
+<div class="container">
   {% block content %}
 
   {% endblock %}
-  </div>
-  </body>
+</div>
+</body>
 </html>

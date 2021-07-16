@@ -1,8 +1,8 @@
 from myproject import app,db
 from flask import render_template, redirect, request, url_for, flash
 from flask_login import login_user,login_required,logout_user
-from myproject.models import User
-from myproject.forms import LoginForm, RegistrationForm
+from myproject.models import User, Tempekan
+from myproject.forms import LoginForm, RegistrationForm, TempekanForm
 
 
 @app.route('/')
@@ -10,10 +10,19 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/welcome')
+@app.route('/dashboard', methods=['GET','POST'])
 @login_required
-def welcome_user():
-    return render_template('welcome_user.html')
+def dashboard():
+    form = TempekanForm()
+
+    if form.validate_on_submit():
+        tempekan = Tempekan(Tempekan=form.Tempekan.data, NamaLengkap=form.NamaLengkap.data,
+                NamaPangillan=form.NamaPangilan.data, TempatLahir=form.TempatLahir.data, TanggalLahir=form.TanggalLahir.dat,
+                Umur=form.Umur.data, Nik=form.Nik.data, Alamat=form.Alamat.data, NoHp=form.NoHp.data, Email=form.Email.data,
+                Bakat=form.Bakat.data, NamaOrtu=form.NamaOrtu.data)
+        db.session.add(tempekan)
+        db.session.commit()
+    return render_template('dashboard.html', form=form)
 
 @app.route('/logout')
 @login_required
@@ -25,8 +34,8 @@ def logout():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
     form = LoginForm()
+
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
@@ -38,12 +47,13 @@ def login():
             next = request.args.get('next')
 
             if next is None or not next[0] == '/':
-                next = url_for('welcome_user')
+                next = url_for('dashboard')
 
             return redirect(next)
     return render_template('login.html', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
+@login_required
 def register():
     form = RegistrationForm()
 
